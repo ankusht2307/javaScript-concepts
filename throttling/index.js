@@ -6,17 +6,22 @@ const setDisable = (flag) => {
         .removeAttribute('disabled', 'disabled');
 };
 
+const showStatus = (message) => {
+  if (!message) return;
+  document.getElementById('status').innerText = message;
+};
+
 const makeApiRequest = () => {
-  console.log('waiting for response...');
+  showStatus('waiting for response...');
 };
 
 const throttle = (cb, delay) => {
   return () => {
-    console.log('request made...');
+    showStatus('request made...');
     setDisable(true);
     setTimeout(() => {
       cb();
-      console.log('response recieved...');
+      showStatus('response recieved...');
       setDisable(false);
     }, delay);
   };
