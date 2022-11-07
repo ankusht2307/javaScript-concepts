@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Event Bubbling and Capturing</title>
+    <style>
+      div {
+        min-width: 5rem;
+        min-height: 5rem;
+        border: 1px solid #000;
+        padding: 4rem;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="grand-parent">
+      Grand Parent
+      <div id="parent">
+        Parent
+        <div id="child">Child</div>
+      </div>
+    </div>
+    <p id="message-grand-parent"></p>
+    <p id="message-parent"></p>
+    <p id="message-child"></p>
+    <script src="index.js"></script>
+  </body>
+</html>
