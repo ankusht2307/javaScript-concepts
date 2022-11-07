@@ -1,10 +1,6 @@
 const bubble = false;
 const capture = true;
 
-const showMessage = (message, id) => {
-  getElementById(id).innerText = message;
-};
-
 const getElementById = (id) => {
   return document.getElementById(id);
 };
@@ -12,7 +8,7 @@ const getElementById = (id) => {
 getElementById('grand-parent').addEventListener(
   'click',
   () => {
-    showMessage('Grand parent clicked', 'message-grand-parent');
+    console.log('Grand parent clicked');
   },
   //   bubble
   capture
@@ -21,7 +17,7 @@ getElementById('grand-parent').addEventListener(
 getElementById('parent').addEventListener(
   'click',
   () => {
-    showMessage('parent clicked', 'message-parent');
+    console.log('parent clicked');
   },
   //   bubble
   capture
@@ -31,7 +27,7 @@ getElementById('child').addEventListener(
   'click',
   (e) => {
     // e.stopPropagation();
-    showMessage('child clicked', 'message-child');
+    console.log('child clicked');
   },
   //   bubble
   capture
