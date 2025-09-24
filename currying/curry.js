@@ -49,8 +49,45 @@ const multiply = function (a) {
   return function (b) {
     if (!b) return a;
     let m = a * b;
-    return multiply(m, b);
+    return multiply(m);
   };
 };
 
 console.log(multiply(2)(2)(2)(2)());
+
+const calculate = {
+  total: 0,
+  plus(value) {
+    this.total += value;
+    return this;
+  },
+  minus(value) {
+    this.total -= value;
+    return this;
+  },
+  value() {
+    return this.total;
+  },
+};
+
+function plus(val) {
+  return calculate.plus(val);
+}
+
+function minus(val) {
+  return calculate.minus(val);
+}
+
+const val = plus(5).plus(2).minus(2).value();
+console.log(val);
+
+const product = function (num1) {
+  return function (num2) {
+    if (!num2) return num1;
+    let num3 = num1 * num2;
+    return product(num3);
+  };
+};
+
+const prod = product(2)(3)(2)();
+console.log(prod);
